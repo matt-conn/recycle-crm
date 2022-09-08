@@ -1,0 +1,16 @@
+body {
+    background: lightslategray;
+}
+
+
+
+
+/* TO DO APP */
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.not {
+    text-decoration: underline;
+}
