@@ -10,20 +10,54 @@
         <meta name="author" content="Matt Connolly">
         <meta name="description" content="Brief description">
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://kit.fontawesome.com/6394bc1834.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
-        <h1>Dashboard</h1>
-
-        <ul>
-            <li>Home</li>
-            <li>Companies</li>
-            <li>Collection</li>
-            <li>Settings</li>
-        </ul>
-
         
+
+
+        <section class="main-content columns is-fullheight">
+            <aside class="column is-3 is-narrow-mobile is-fullheight section is-hidden-mobile">
+              <ul class="menu-list">
+                <li>
+                  <a href="#" class="">
+                    <span class="icon"><i class="fa fa-home"></i></span> Home
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="is-active">
+                    <span class="icon"><i class="fa fa-table"></i></span> Links
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="">
+                    <span class="icon"><i class="fa fa-info"></i></span> About
+                  </a>
+                </li>
+              </ul>
+            </aside>
+          
+            <div class="container column is-9">
+              <div class="section">
+          
+                <div class="card">
+                  <div class="card-header"><p class="card-header-title">Header</p></div>
+                </div>
+                
+                <div class="card is-hidden1">
+                  <div class="card-content"><div class="content">Content</div></div>
+                </div>
+                <div class="card is-hidden1">
+                    <div class="card-content"><div class="content">Content</div></div>
+                  </div>     
+              </div>
+            </div>
+            
+          </section>
+
 
         <script type="text/javascript" src="js/main.js"></script>
     </body>
