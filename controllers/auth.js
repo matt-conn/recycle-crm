@@ -57,17 +57,6 @@ exports.postLogin = (req, res, next) => {
       title: 'Create Account'
     })
   }
-
-  exports.getDashboard = (req,res) => {
-    (req.user)
-    try{
-        // const todoItems = await Todo.find({userId:req.user.id})
-        // const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
-        res.render('dashboard.ejs')
-    }catch(err){
-        console.log(err)
-    }
-}
   
   exports.postSignup = (req, res, next) => {
     const validationErrors = []

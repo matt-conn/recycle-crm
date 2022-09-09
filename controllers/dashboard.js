@@ -1,5 +1,5 @@
 module.exports = {
-    getDashboard: async (req,res)=>{
+    getDashboard: async (req,res) => {
         console.log(req.user)
         try{
             res.render('dashboard.ejs')
