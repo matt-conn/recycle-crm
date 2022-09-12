@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<%- include('partials/header') -%>
 
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-    <h1>LOGIN</h1>
+
+
+<div class="column is-three-fifths is-offset-one-fifth mt-6 py-6">
+	<div class="notification is-primary">
+		<h1 class="title is-1 has-text-centered">recycleCRM</h1>
+		<h2 class="subtitle is-4 has-text-centered">The CRM for electronics recycling and waste management.</h2>
+
+		<div class="buttons has-addons is-centered">
+			<a href="/login" class="button is-size-6 is-active is-danger"> Login</a>
+			<a href="/signup" class="button is-size-6"> Signup</a>
+		</div>
+	</div>
 
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
@@ -21,10 +23,31 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
+
     <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" type="email" name="email" placeholder="Email">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" type="password" name="password" placeholder="Password">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <input class="button is-success" type="submit" value="Login">
+        </div>
     </form>
-</body>
-</html>
+</div>
+
+<%- include('partials/footer') -%>
