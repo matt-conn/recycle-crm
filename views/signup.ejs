@@ -1,27 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<%- include('partials/header') -%>
 
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-    <h1>SIGN UP</h1>
+
+
+<div class="column is-three-fifths is-offset-one-fifth mt-6 py-6">
+	<div class="notification is-primary">
+		<h1 class="title is-1 has-text-centered">recycleCRM</h1>
+		<h2 class="subtitle is-4 has-text-centered">The CRM for electronics recycling and waste management.</h2>
+
+		<div class="buttons has-addons is-centered">
+			<a href="/login" class="button is-size-6"> Login</a>
+			<a href="/signup" class="button is-size-6 is-active is-danger"> Signup</a>
+		</div>
+	</div>
 
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
+
     <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
+        <!-- username -->
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" type="text" name="userName" placeholder="Username">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </p>
+        </div>
+
+        <!-- email -->
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" type="email" name="email" placeholder="Email">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </p>
+        </div>
+
+        <!-- password -->
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" type="password" name="password" placeholder="Password">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </p>
+        </div>
+
+        <!-- confirm password -->
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" type="password" name="confirmPassword" placeholder="Confirm password">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </p>
+        </div>
+
+        <!-- submit -->
+        <div class="field">
+            <input class="input button is-success" type="submit" value="Sign Up">
+        </div>
     </form>
-</body>
-</html>
+</div>
+
+<%- include('partials/footer') -%>
