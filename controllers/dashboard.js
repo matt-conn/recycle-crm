@@ -10,7 +10,7 @@ module.exports = {
     },
     getCompanies: async (req,res) => {        
         try {
-            res.render('companies.ejs');
+            res.render('companies.ejs', { user: req.user });
         } catch(err){
             console.log(err);
         }
