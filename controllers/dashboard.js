@@ -1,5 +1,6 @@
-const Person = require("../models/Person");
+const Collection = require("../models/Collection");
 const Company = require("../models/Company");
+const Person = require("../models/Person");
 const Ticket = require("../models/Ticket");
 
 module.exports = {
@@ -87,9 +88,27 @@ module.exports = {
     },
     getCollection: async (req,res) => {
         try {
-            res.render('collection.ejs', { user: req.user });
+            const collection = await Collection.find({ user: req.user.id })
+            res.render('collection.ejs', { collection: collection, user: req.user });
         } catch(err){
             console.log(err);
         }
-    }
+    },
+    createCollection: async (req, res) => {
+        try {
+            await Collection.create({
+                date: req.body.date,
+                company: req.body.company,
+                description: req.body.description,
+                notes: req.body.notes,
+                gross: req.body.gross,
+                tare: req.body.tare,
+                user: req.user.id,
+            });
+            console.log("Record has been added!");
+            res.redirect("/dashboard/collection");
+        } catch (err) {
+            console.log(err);
+        }
+    },
 }

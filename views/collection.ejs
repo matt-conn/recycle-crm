@@ -2,7 +2,7 @@
 
 <div class="ml-0-touch" style="margin-left: 250px">
     <section class="main-content columns is-fullheight is-centered">
-        <div class="container column is-12">
+        <div class="container column is-full">
             <div class="section">
                 <div class="">
                     <!-- header -->
@@ -10,12 +10,107 @@
                         <p class="card-header-title">Collection</p>
                     </div>
 
-                    <!-- tiles -->
+                    <button class="button is-primary js-modal-trigger" data-target="modal-js-example">
+                        Add a Record
+                    </button>
+
+                    <div id="modal-js-example" class="modal" style="margin-left: 250px">
+                        <div class="modal-background"></div>
+                        <div class="modal-card">
+                            <header class="modal-card-head">
+                                <p class="modal-card-title">Add a Record</p>
+                                <button class="delete" aria-label="close"></button>
+                            </header>
+                            <section class="modal-card-body">
+                                <form action="/dashboard/createCollection" method="POST">
+                                    <div class="field">
+                                        <label for="date" class="label">Date</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Date" name="date">
+                                        </div>
+                                    </div>
+    
+                                    <div class="field">
+                                        <label for="company" class="label">Company</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Company" name="company">
+                                        </div>
+                                    </div>
+    
+                                    <div class="field">
+                                        <label for="description" class="label">Description</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Description" name="description">
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="notes" class="label">Notes</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Notes" name="notes">
+                                        </div>
+                                    </div>
+    
+                                    <div class="field">
+                                        <label for="gross" class="label">Gross Weight</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Gross Weight" name="gross">
+                                        </div>
+                                    </div>
+    
+                                    <div class="field">
+                                        <label for="tare" class="label">Tare Weight</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Tare Weight" name="tare">
+                                        </div>
+                                    </div>
+    
+                                    <div class="field is-grouped">
+                                        <div class="control">
+                                            <button class="button is-link">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>    
+                            </section>
+                            <footer class="modal-card-foot">
+                                
+                            </footer>
+                        </div>
+                        <button class="modal-close is-large" aria-label="close"></button>
+                    </div>
                     
+                    <!-- table -->
+                    <div class="container has-background-white mt-5">
+                        <table class="table is-bordered is-narrow is-fullwidth is-hoverable">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Company</th>
+                                    <th>Description</th>
+                                    <th>Notes</th>
+                                    <th>Gross</th>
+                                    <th>Tare</th>
+                                    <th>Net</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (let i = 0; i < collection.length; i++) { %>
+                                    <tr>
+                                        <td> <%= collection[i].date %> </td>
+                                        <td> <%= collection[i].company %> </td>
+                                        <td> <%= collection[i].description %> </td>
+                                        <td> <%= collection[i].notes %> </td>
+                                        <td> <%= collection[i].gross %> </td>
+                                        <td> <%= collection[i].tare %> </td>
+                                        <td> <%= collection[i].gross - collection[i].tare %> </td>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
-
 <%- include('partials/footer') -%>

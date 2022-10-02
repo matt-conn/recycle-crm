@@ -15,6 +15,7 @@ router.get('/tickets', dashboardController.getTickets)
 router.post('/createTicket', dashboardController.createTicket)
 
 router.get('/collection', dashboardController.getCollection)
+router.post('/createCollection', dashboardController.createCollection)
 
 
 
