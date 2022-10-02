@@ -11,7 +11,8 @@ router.post('/createCompany', dashboardController.createCompany)
 router.get('/people', dashboardController.getPeople)
 router.post('/createPerson', dashboardController.createPerson)
 
-router.get('/pickups', dashboardController.getPickups)
+router.get('/tickets', dashboardController.getTickets)
+router.post('/createTicket', dashboardController.createTicket)
 
 router.get('/collection', dashboardController.getCollection)
 

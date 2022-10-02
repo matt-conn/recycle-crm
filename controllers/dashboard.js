@@ -1,5 +1,6 @@
 const Person = require("../models/Person");
 const Company = require("../models/Company");
+const Ticket = require("../models/Ticket");
 
 module.exports = {
     getDashboard: async (req,res) => {
@@ -60,10 +61,27 @@ module.exports = {
             console.log(err);
         }
     },
-    getPickups: async (req,res) => {
+    getTickets: async (req,res) => {
         try {
-            res.render('pickups.ejs', { user: req.user });
+            const tickets = await Ticket.find({ user: req.user.id })
+            res.render('tickets.ejs', { tickets: tickets, user: req.user });
         } catch(err){
+            console.log(err);
+        }
+    },
+    createTicket: async (req, res) => {
+        try {
+            await Ticket.create({
+                company: req.body.company,
+                date: req.body.date,
+                status: req.body.status,
+                region: req.body.region,
+                notes: req.body.notes,
+                user: req.user.id
+            });
+            console.log("Ticket has been added!");
+            res.redirect("/dashboard/tickets");
+        } catch (err) {
             console.log(err);
         }
     },
