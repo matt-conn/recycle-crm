@@ -1,4 +1,5 @@
 const Person = require("../models/Person");
+const Company = require("../models/Company");
 
 module.exports = {
     getDashboard: async (req,res) => {
@@ -10,8 +11,27 @@ module.exports = {
     },
     getCompanies: async (req,res) => {        
         try {
-            res.render('companies.ejs', { user: req.user });
+            const companies = await Company.find({ user: req.user.id })
+            res.render('companies.ejs', { companies: companies, user: req.user });
         } catch(err){
+            console.log(err);
+        }
+    },
+    createCompany: async (req, res) => {
+        try {
+            await Company.create({
+                company: req.body.company,
+                website: req.body.website,
+                phone: req.body.phone,
+                street: req.body.street,
+                city: req.body.city,
+                state: req.body.state,
+                zip: req.body.zip,
+                user: req.user.id
+            });
+            console.log("Company has been added!");
+            res.redirect("/dashboard/companies");
+        } catch (err) {
             console.log(err);
         }
     },

@@ -6,6 +6,7 @@ const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
 // dashboard routes
 router.get('/companies', dashboardController.getCompanies)
+router.post('/createCompany', dashboardController.createCompany)
 
 router.get('/people', dashboardController.getPeople)
 router.post('/createPerson', dashboardController.createPerson)
