@@ -90,6 +90,7 @@
                                     <th>Title</th>
                                     <th>Email</th>
                                     <th>Phone</th>
+                                    <th colspan="2">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -101,6 +102,8 @@
                                         <td> <%= people[i].jobTitle %> </td>
                                         <td> <%= people[i].email %> </td>
                                         <td> <%= people[i].phone %> </td>
+                                        <td class="js-modal-trigger" data-target="modal-js-example"> E </td>
+                                        <td class="js-modal-trigger" data-target="modal-js-example"> D </td>
                                     </tr>
                                 <% } %>
                             </tbody>
